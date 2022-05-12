@@ -1,3 +1,5 @@
+注：在修改此readme时脚本尚未完成测试
+
 # payload-dumper-actions
 
 - 点击 **Use this template**  
