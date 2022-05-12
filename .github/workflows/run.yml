@@ -28,7 +28,7 @@ jobs:
           
       - name: Download ROM
         run: |
-          wget -O ./tmp/ROM.zip -i ${{ github.event.inputs.ROM_URL }}
+          wget -O ./tmp/ROM.zip  ${{ github.event.inputs.ROM_URL }}
 
       - name: Dump payload.bin
         run: |
