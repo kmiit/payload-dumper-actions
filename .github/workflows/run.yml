@@ -2,6 +2,16 @@ name: payload-dumper-actions
 
 on:
   workflow_dispatch:
+    inputs:
+      partition:
+        description: 'partition'
+        required: true
+        default: 'boot'
+      ROM_URL:
+        description: 'ROM_URL'
+        required: true
+        default: ''
+
 
 jobs:
   build:
@@ -18,16 +28,17 @@ jobs:
           
       - name: Download ROM
         run: |
-          wget -O ./tmp/ROM.zip -i url.txt
+          wget -O ./tmp/ROM.zip -i {{ROM_URL}}
 
       - name: Dump payload.bin
         run: |
-          ./payload-dumper-go -p boot -o output ./tmp/ROM.zip
+          ./payload-dumper-go -p {{partition}} -o output ./tmp/ROM.zip
           rm -rf tmp/
           rm payload-dumper-go
+          tar -zcvf ./output/* ./images.tgz
           
       - name: Upload to Artifacts
         uses: actions/upload-artifact@v2
         with:
           name: boot.img
-          path: './output/boot.img'
+          path: './images.tgz'
