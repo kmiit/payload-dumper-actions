@@ -35,7 +35,8 @@ jobs:
           ./payload-dumper-go -p ${{ github.event.inputs.partition }} -o output ./tmp/ROM.zip
           rm -rf tmp/
           rm payload-dumper-go
-          tar -zcvf ./images.tgz ./output/*
+          tar -zcvf ./images.tgz ./output/*.img
+
           
       - name: Upload to Artifacts
         uses: actions/upload-artifact@v2
