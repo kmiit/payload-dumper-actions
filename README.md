@@ -1,5 +1,6 @@
-注：只测试了boot.img，其他镜像自行测试，貌似每次只能解包一个镜像，懒得修，需求不大，一般一个boot就够了
-
+### 注：
+- 每次只能解包一个镜像
+- 使用hugeota不带尾参的链接可能会加速action服务器下包的速度
 # payload-dumper-actions
 
 - 点击 **Use this template**  
